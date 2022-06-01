@@ -30,7 +30,7 @@ def getProducts():
 
         p_link = product.findChild("div", {"class": "name"}).findChild("a")["href"]
 
-        p_img = product.findChild("div", {"class": "image"}).find("img")["src"]
+        p_img = product.findChild("div", {"class": "image"}).findAll("img")[-1]["src"]
 
         discounted = product.findChild("span", {"class": "price-new"})
 

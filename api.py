@@ -1,11 +1,14 @@
 from flask import Flask
 import scraper
 import utils
+from flask import jsonify
 
 app = Flask(__name__)
 
 @app.route("/products")
 def products():
 
-    plist = utils.dictToJson(scraper.getProducts())
-    return plist
+    resp = jsonify(scraper.getProducts()) 
+    resp.headers.add("Access-Control-Allow-Origin", "*")
+    
+    return resp
